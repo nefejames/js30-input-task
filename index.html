@@ -77,16 +77,19 @@
       let formFunction = e => {
         e.preventDefault();
         let re = /^[A-Za-z]+$/;
-        let inputValue = document.querySelector("input").value
+        let inputValue = document.querySelector("input").value;
 
         if (!inputValue || !re.test(inputValue)) {
           error.textContent = "only numbers allowed; no strings attached";
           result.textContent = "";
         } else {
           let reversedInput = inputValue
+            .toLowerCase()
             .split("")
             .sort()
             .join("");
+
+          reversedInput.toLowerCase();
 
           result.textContent = reversedInput;
         }
